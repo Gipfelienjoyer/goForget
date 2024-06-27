@@ -5,9 +5,8 @@ import (
 	"goForget/src/handlers"
 )
 
+func main() {
 
-func main () {
-	
 	var userInput string
 	var taskId int
 
@@ -16,11 +15,11 @@ func main () {
 	fmt.Println("If you need help read the documentation or type the letter h")
 
 	for {
-		
+
 		fmt.Scanln(&userInput)
 
 		switch userInput {
-		case "h": 
+		case "h":
 			fmt.Println("Get some help")
 
 		case "d":
@@ -29,13 +28,9 @@ func main () {
 			fmt.Println("Deleting Task", handlers.CreateTask(taskId))
 
 		case "c":
-			fmt.Println("Creating")
-
+			
 		case "ls":
-			fmt.Println("List")
 		}
 
-		
 	}
 }
-
