@@ -1,21 +1,30 @@
 package storage
 
 import (
-	schema "goForget/src/models"
 	"time"
 )
 
-// Defining a slice of ToDo-Structs which are definded in src/schema
-type ToDos []schema.Todo
+type Item struct {
+	ID          int        `json:"id"`
+	Title       string     `json:"title"`
+	Category    string     `json:"category"`
+	Description string     `json:"note"`
+	DueDate     *time.Time `json:"dueDate"`
+	CreatedAt   time.Time  `json:"createdAt"`
+	CompletedAt *time.Time `json:"completedAt"`
+}
+
+// Defining a slice of ToDo-Structs which are defined in src/models
+type ToDos []Item
 
 // An INT that specifies where the next todo
 var nextID int
 
-func (t *ToDos) AddToDo(title string, categorie string, description string, dueDate *time.Time) {
-	toDoItem := schema.Todo{
+func (t *ToDos) AddToDo(title string, category string, description string, dueDate *time.Time) {
+	toDoItem := Item{
 		ID:          nextID,
 		Title:       title,
-		Categorie:   categorie,
+		Category:    category,
 		Description: description,
 		DueDate:     dueDate,
 		CreatedAt:   time.Now(),
@@ -23,6 +32,5 @@ func (t *ToDos) AddToDo(title string, categorie string, description string, dueD
 	}
 
 	nextID++
-
 	*t = append(*t, toDoItem)
 }
