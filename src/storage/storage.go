@@ -38,3 +38,12 @@ func (t *ToDos) AddToDo(title string, category string, description string, dueDa
 func (t *ToDos) DeleteToDo(taskId int) {
 
 }
+
+func (t *ToDos) UpdateToDo(taskId int, title string, category string, description string, dueDate *time.Time) {
+
+	list := *t
+
+	if len(title) != 0 {
+		list[taskId].Title = title
+	}
+}
