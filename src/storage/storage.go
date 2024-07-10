@@ -34,3 +34,7 @@ func (t *ToDos) AddToDo(title string, category string, description string, dueDa
 	nextID++
 	*t = append(*t, toDoItem)
 }
+
+func (t *ToDos) DeleteToDo(taskId int) {
+
+}

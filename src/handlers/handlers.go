@@ -5,8 +5,8 @@ import (
 	"time"
 )
 
-func DeleteTask(taskId int) int {
-	// Add deletion logic here
+func DeleteTask(todos *storage.ToDos, taskId int) int {
+	todo
 	return taskId
 }
 
