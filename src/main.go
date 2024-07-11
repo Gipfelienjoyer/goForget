@@ -4,42 +4,29 @@ import (
 	"fmt"
 	"goForget/src/handlers"
 	"goForget/src/structs"
+	"os"
 )
 
 func main() {
 
-	type ToDoSlice []structs.ToDoItem
-	ToDoStorage := &ToDoSlice{}
-	nextId := 0
+	// Used to temporarily store the Tasks before writing them to a file
+	ToDoStorage := &structs.ToDoSlice{}
+
+	// A var that stores the next ID we need to append to
+	var NextID int
 
 	var userInput string
-	var taskId int
 
 	for {
 
 		fmt.Scanln(&userInput)
 
 		switch userInput {
-		case "u":
-			fmt.Scanln(&taskId)
-			handlers.UpdateTask(todos, taskId)
+		case "a":
+			NextID = Add.AddToDo(ToDoStorage, NextID)
 
-		case "h":
-			fmt.Println("Get some help")
-
-		case "d":
-			fmt.Scanln(&taskId)
-			handlers.DeleteTask(todos, taskId)
-
-		case "c":
-			// Implement completion logic here
-
-		case "ls":
-			fmt.Scanln("Which Task do you want to view?", &taskId)
-			fmt.Println(todos)
-
-		case "add":
-			break
+		case "x":
+			os.Exit(1)
 
 		default:
 			fmt.Println("Please use a real command")
