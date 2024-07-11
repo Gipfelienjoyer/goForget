@@ -20,3 +20,7 @@ In Main.go we declared some important Variables:
 
 ### Add.go
 In Add.go is (who would have guessed) everything that has to do with adding a task to our app.
+
+First we declare the variables that will later have the values we will insert into our Storage.
+
+Then we make the function *AddToDo*. 
