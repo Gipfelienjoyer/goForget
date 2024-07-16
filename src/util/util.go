@@ -1,14 +1,14 @@
 package util
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func ScanLine(PrintText string) any {
-	var userInput any
+func ScanLine(PrintText string, Scan bool) string {
+	UserInput := ""
 	fmt.Println(PrintText)
-	scanln, err := fmt.Scanln(&userInput)
-	if err != nil {
-
+	if Scan {
+		fmt.Scanln(&UserInput)
 	}
-
-	return scanln
+	return UserInput
 }

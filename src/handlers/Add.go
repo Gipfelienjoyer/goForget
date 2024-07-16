@@ -3,6 +3,7 @@ package Add
 import (
 	"fmt"
 	"goForget/src/structs"
+	"goForget/src/util"
 	"time"
 )
 
@@ -11,24 +12,20 @@ var DueDate *time.Time
 
 func AddToDo(ToDoSlice *structs.ToDoSlice, ID int) int {
 
-	fmt.Println("Whats the title of your Task?")
-	fmt.Scanln(&Title)
-
-	fmt.Println("In what category does your Task belong?")
-	fmt.Scanln(&Category)
-
-	fmt.Println("Whats the description of your Task?")
-	fmt.Scanln(&Description)
-
-	fmt.Println("Do you want to add an due Date? (y/n)")
-	fmt.Scanln(&DueDateConfirmation)
+	Title = util.ScanLine("Whats the title of your Task", true)
+	Category = util.ScanLine("In what category does your task belong?", true)
+	Description = util.ScanLine("Whats the description of your task", true)
+	DueDateConfirmation = util.ScanLine("Do you want to add an due Date? (y/n)", true)
 
 	if DueDateConfirmation == "y" || DueDateConfirmation == "Y" {
 		fmt.Println("Whats the due date?")
-		fmt.Scanln(&Date)
+		for true {
+			fmt.Scanln(&Date)
 
-		fmt.Println("Whats the due time")
-		fmt.Scanln(&Time)
+			if Date {
+
+			}
+		}
 	}
 
 	ToDoItem := structs.ToDoItem{
