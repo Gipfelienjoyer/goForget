@@ -18,16 +18,20 @@ func AddToDo(ToDoSlice *structs.ToDoSlice, ID int) int {
 	DueDateConfirmation = util.ScanLine("Do you want to add an due Date? (y/n)", true)
 
 	if DueDateConfirmation == "y" || DueDateConfirmation == "Y" {
-		fmt.Println("Whats the due date?")
-		for true {
-			fmt.Scanln(&Date)
 
-			if Date {
+		Date := util.ScanLine("What's the due Date?", true)
+		Time := util.ScanLine("What's the due Time?", true)
 
-			}
+		TempTime, err := time.Parse("01.01.2001 15.45", Date+" "+Time)
+		if err != nil {
+			fmt.Println("There was an error while inputing your time. Error: " + err.Error())
 		}
+		fmt.Println(TempTime)
 	}
 
+	{
+
+	}
 	ToDoItem := structs.ToDoItem{
 		ID:          ID,
 		Title:       Title,
